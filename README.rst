@@ -20,7 +20,7 @@ This repository provides an **official, dockerised django CMS starter project** 
 - 🐍 **Python 3.11**, 🎯 **Django 5.2**, 🧩 **django CMS 5.0**
 - 🐳 Fully **Docker Compose** based
 - 🏗️ Cloud-ready configuration
-- 🎨 Bootstrap 4 frontend (optional)
+- 🎨 djangocms-frontend Bootstrap 5 components (optional)
 - 🔌 Curated set of useful django CMS plugins
 
 **Officially endorsed by the django CMS Association**
