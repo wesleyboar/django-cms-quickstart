@@ -4,10 +4,19 @@
 django CMS quickstart
 #####################
 
-- A dockerised django CMS project intended to be run locally in Docker on your own machine or on a Docker-based cloud, such as `Divio <https://www.divio.com/>`_ 
-- This version uses Python 3.11 and the most up-to-date versions of Django 4.2, and django CMS 4.1.0
-- This project is endorsed by the `django CMS Association <https://www.django-cms.org/en/about-us/>`_. That means that it is officially accepted by the dCA as being in line with our roadmap vision and development/plugin policy. Join us on `Slack <https://www.django-cms.org/slack/>`_ for more information or questions.
-- The documentation for  django CMS can be found here: https://docs.django-cms.org/
+A dockerized django CMS project intended to be run locally in Docker on your own machine or on a Docker-based cloud,
+such as `Divio <https://www.divio.com/>`_.
+
+**Highlights**
+
+- Python 3.11 with Django 4.2 and django CMS 4.1.0
+- Endorsed by the `django CMS Association <https://www.django-cms.org/en/about-us/>`_ (dCA)
+- Join us on `Slack <https://www.django-cms.org/slack/>`_ for more information or questions
+- django CMS documentation: https://docs.django-cms.org/
+
+.. contents:: On this page
+    :local:
+    :depth: 2
 
 Installation
 ############
@@ -38,8 +47,22 @@ Local Setup
 
 Then open http://django-cms-quickstart.127.0.0.1.nip.io:8000 (or just http://127.0.0.1:8000) in your browser.
 
+You can log in via the Django admin at http://127.0.0.1:8000/admin/.
+
 You can stop the server with ``docker compose stop`` without destroying the containers and restart it with
 ``docker compose start``.
+
+**Common commands**
+
+- Follow logs: ``docker compose logs -f``
+- Run a one-off command: ``docker compose run --rm web <command>``
+- Open a shell in the web container: ``docker compose run --rm web bash``
+
+**Troubleshooting**
+
+- Check container status: ``docker compose ps``
+- If the site doesn't load, inspect logs: ``docker compose logs -f web``
+- If migrations fail, re-run: ``docker compose run --rm web python manage.py migrate``
 
 With ``docker compose down`` the containers are deleted, but the database content is still preserved in the named
 volume ``django-cms-quickstart_postgres-data`` and the media files are stored in the file system in ``data/media``.
@@ -66,7 +89,7 @@ As-is, it will include a number of useful django CMS plugins and Bootstrap 4 for
 these; they're optional. If you don't want to use them, read through the ``settings.py`` and ``requirements.txt`` files
 to see sections that can be removed - in each case, the section is noted with a comment containing the word 'optional'.
 
-Options are also available for using Postgres/MySQL, uWSGI/Gunicorn/Guvicorn, etc.
+Options are also available for using PostgreSQL/MySQL, uWSGI/Gunicorn/Guvicorn, etc.
 
 Loading with pre-built page on install
 ======================================
@@ -75,6 +98,7 @@ You can load demo contents into the project to quickly find out how to use
 ``django-cms`` and ``djangocms-frontend`` to add pages.
 
 Here is how to use the command:
+
 1. To list the available files in the ``democontent`` folder.
    Run ``docker compose run --rm web python manage.py democontent``
 
@@ -85,10 +109,10 @@ Here is how to use the command:
 Updating requirements
 =====================
 
-The project uses a django best practise two step approach, freezing all dependencies with pip-tools. Here is how to update requirements:
+The project uses a Django best practice two-step approach, freezing all dependencies with pip-tools. Here is how to update requirements:
 
 1. Change ``requirements.in`` according to your needs. There is no need to pin the package versions here unless you have a good reason (i.e. known incompatibilities)
-2. Run ``docker compose run --rm web pip-compile requirements.in >> requirements.txt``
+2. Run ``docker compose run --rm web pip-compile requirements.in --output-file requirements.txt``
 3. ``requirements.txt`` should now have changed
 4. Rebuild the container ``docker compose build web`` and restart ``docker compose up -d``
 
@@ -100,15 +124,15 @@ Static Files with Whitenoise
 
 - This quickstart demo has a cloud-ready static files setup via django-whitenoise.
 - In the containerized cloud the application is not served by a web server like nginx but directly through uwsgi. django-whitenoise is the glue that's needed to serve static files in your application directly through uwsgi.
-- See the django-whitenoise settings in settings.py and the ``quickstart/templates/whitenoise-static-files-demo.html`` demo page template that serves a static file.
+- See the django-whitenoise settings in ``backend/settings.py`` and the ``backend/templates/whitenoise-static-files-demo.html`` demo page template that serves a static file.
 
 Env variables
 =============
 
 - By default, Docker injects the env vars defined in ``.env-local`` into the quickstart project.
 - If you want to access the PostgreSQL database from the host system, set ``DB_PORT`` to the desired port number.
-  5432 is the standard port number. If you run PosgreSQL on your host system, you may want to set another port number.
-  If this variable is empty (the default), the PosgreSQL instance in the container is only reachable within docker, but
+  5432 is the standard port number. If you run PostgreSQL on your host system, you may want to set another port number.
+  If this variable is empty (the default), the PostgreSQL instance in the container is only reachable within docker, but
   not from outside.
 
 Contribution
