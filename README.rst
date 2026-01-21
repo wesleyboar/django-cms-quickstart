@@ -14,9 +14,23 @@ such as `Divio <https://www.divio.com/>`_.
 - Join us on `Slack <https://www.django-cms.org/slack/>`_ for more information or questions
 - django CMS documentation: https://docs.django-cms.org/
 
-.. contents:: On this page
-    :local:
-    :depth: 2
+Quickstart (2 minutes)
+######################
+
+If you have Docker installed, copy/paste the commands below to get a running site:
+
+.. code-block:: bash
+
+  git clone git@github.com:django-cms/django-cms-quickstart.git
+  cd django-cms-quickstart
+  docker compose build web
+  docker compose up -d database_default
+  docker compose run --rm web python manage.py migrate
+  docker compose run --rm web python manage.py createsuperuser
+  docker compose up -d
+
+Open http://127.0.0.1:8000 (or http://django-cms-quickstart.127.0.0.1.nip.io:8000) and log in at
+http://127.0.0.1:8000/admin/.
 
 Installation
 ############
@@ -113,8 +127,15 @@ The project uses a Django best practice two-step approach, freezing all dependen
 
 1. Change ``requirements.in`` according to your needs. There is no need to pin the package versions here unless you have a good reason (i.e. known incompatibilities)
 2. Run ``docker compose run --rm web pip-compile requirements.in --output-file requirements.txt``
+   You can add ``-U`` to update pinned versions.
 3. ``requirements.txt`` should now have changed
 4. Rebuild the container ``docker compose build web`` and restart ``docker compose up -d``
+
+Alternatively, if you have ``pip-tools`` installed on your host system, you can run:
+
+.. code-block:: bash
+
+  pip-compile -U requirements.in -o requirements.txt
 
 Features
 ########
