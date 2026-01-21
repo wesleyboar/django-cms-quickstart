@@ -90,11 +90,11 @@ Data persistence:
 ⚙️ Customisation Options
 ########################
 
-This project works **out of the box**, but is easy to tailor.
+This project works **out of the box**, but is also easy to tailor.
 
 Optional customisations include:
 
-- Removing Bootstrap 4
+- Removing Bootstrap 5
 - Removing bundled plugins
 - Switching databases (PostgreSQL / MySQL)
 - Switching servers (uWSGI / Gunicorn / Guvicorn)
@@ -109,7 +109,7 @@ Look for sections marked **optional** in:
 🧪 Load Demo Content (Recommended)
 ##################################
 
-Quickly explore django CMS with pre-built pages.
+Quickly explore django CMS with some pre-built pages.
 
 1. List available demo pages:
 
