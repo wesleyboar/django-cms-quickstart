@@ -222,4 +222,4 @@ https://github.com/django-cms/djangocms-template/blob/mco-standalone/docs/deploy
 Happy building!
 If this helped you, ⭐️ the repository and join the django CMS community.
 
-.. |pythonapp| image:: https://github.com/django-cms/django-cms-quickstart/workflows/Python%20application/badge.svg?branch=support/cms-5.0
+.. |pythonapp| image:: https://img.shields.io/badge/django%20CMS-5.0-blue
