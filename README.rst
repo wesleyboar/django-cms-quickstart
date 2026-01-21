@@ -1,5 +1,3 @@
-|pythonapp|
-
 ############################
 🚀 django CMS Quickstart
 ############################
@@ -17,7 +15,7 @@ This repository provides an **official, dockerised django CMS starter project** 
 ✨ What’s Inside?
 #################
 
-- 🐍 **Python 3.11**, 🎯 **Django 5.2**, 🧩 **django CMS 5.0**
+- 🐍 **Python 3.13**, 🎯 **Django 5.2**, 🧩 **django CMS 5.0**
 - 🐳 Fully **Docker Compose** based
 - 🏗️ Cloud-ready configuration
 - 🎨 djangocms-frontend Bootstrap 5 components (optional)
@@ -221,5 +219,3 @@ https://github.com/django-cms/djangocms-template/blob/mco-standalone/docs/deploy
 
 Happy building!
 If this helped you, ⭐️ the repository and join the django CMS community.
-
-.. |pythonapp| image:: https://img.shields.io/badge/django%20CMS-5.0-blue
