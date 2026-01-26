@@ -28,6 +28,8 @@ djangocms-transfer>=2.0.0
 # optional django CMS frontend
 djangocms-frontend
 
+# test blog feature
+djangocms-blog
 django-filer
 
 
