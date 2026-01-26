@@ -83,6 +83,10 @@ INSTALLED_APPS = [
     'djangocms_frontend.contrib.image',
     'djangocms_frontend.contrib.tabs',
     'djangocms_frontend.contrib.utilities',
+
+    # test blog feature
+    'djangocms_blog',
+
 ]
 
 MIDDLEWARE = [
@@ -232,3 +236,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 CMS_CONFIRM_VERSION4 = True
 DJANGOCMS_VERSIONING_ALLOW_DELETING_VERSIONS = True
+
+# test blog feature
+BLOG_AUTO_SETUP = True # Set to False after setup (minimize overhead)
+BLOG_AUTO_HOME_TITLE ='Home'
+BLOG_AUTO_BLOG_TITLE = 'News'
+BLOG_AUTO_APP_TITLE = 'News'
+BLOG_AUTO_NAMESPACE = 'News'
+BLOG_ENABLE_COMMENTS = False
